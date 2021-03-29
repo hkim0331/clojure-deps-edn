@@ -16,7 +16,7 @@ The **[Practicalli Clojure book](https://practicalli.github.io/clojure/clojure-t
 * [Updating practicalli/clojure-deps-edn](#updating-practicalli-clojure-deps-edn)
 * [Common development tasks](#common-development-tasks)
 * [Aliases](#aliases)
-    * [REPL experience](#repl-experience) | [Alternative REPLs](#alternative-repls) | [Projects](#clojure-projects) | [Java sources](#java-sources) | [Databases](#databases-and-drivers) | [Data Inspectors](#data-inspectors) | [Middleware](#middleware) | [Clojure Spec](#clojure-specification) | [Unit Testing](#unit-testing-frameworks) | [Test runners](#test-runners-and-test-coverage-tools) | [Lint tools](#lint-tools) | [Visualize vars and deps](#visualizing-project-vars-and-library-dependencies) | [Performance testing](#performance-testing)
+    * [REPL experience](#repl-experience) | [Alternative REPLs](#alternative-repls) | [Projects](#clojure-projects) | [Java sources](#java-sources) | [Databases](#databases-and-drivers) | [Data Inspectors](#data-inspectors) | [Middleware](#middleware) | [Clojure Spec](#clojure-specification) | [Unit Testing](#unit-testing-frameworks) | [Test runners](#test-runners-and-test-coverage-tools) | [Lint tools](#lint-tools) | [Visualize vars and deps](#visualizing-project-vars-and-library-dependencies) | [Performance testing](#performance-testing) | [Serices](#services)
 * [Library repositories](#library-repositories)
 * [Experimental](#experimental)
 
@@ -174,12 +174,12 @@ clojure -M:project/new luminus practicalli/full-stack-app +http-kit +h2 +reagent
 ```
 
 Create a new project (Edn command line arguments - recommended approach)
-| Command                                                                                   | Description                                          |
-|-------------------------------------------------------------------------------------------|------------------------------------------------------|
-| `clojure -X:project/new`                                                                  | library project called playground                    |
-| `clojure -X:project/new :name practicalli/my-library`                                     | library project with given name                      |
-| `clojure -X:project/new :template app :name practicalli/my-application`                   | App project with given name                          |
-| `clojure -X:project/new :template luminus :name practicalli/full-stack-app +http-kit +h2` | Luminus project with given name and template options |
+| Command                                                                                                 | Description                                          |
+|---------------------------------------------------------------------------------------------------------|------------------------------------------------------|
+| `clojure -X:project/new`                                                                                | library project called playground                    |
+| `clojure -X:project/new :name practicalli/my-library`                                                   | library project with given name                      |
+| `clojure -X:project/new :template app :name practicalli/my-application`                                 | App project with given name                          |
+| `clojure -X:project/new :template luminus :name practicalli/full-stack-app :args '["+http-kit" "+h2"]'` | Luminus project with given name and template options |
 
 ### Running projects
 
@@ -592,6 +592,20 @@ In the REPL:
   (require '[clj-memory-meter.core :as memory-meter])
    (memory-meter/measure (your-expression))
 ```
+
+## Services
+Web servers and other standalone services run with Clojure CLI tools
+
+* `:service/webserver` - serve files from current directory or specified directory and port.  More options at [kachayev/nasus project](https://github.com/kachayev/nasus).
+
+| Command                                        | Description                                         |
+|------------------------------------------------|-----------------------------------------------------|
+| `clojure -M:service/webserver`                 | HTTP file server for current directory on port 8000 |
+| `clojure -M:service/webserver 8888`            | as above with PORT specified to 8888                |
+| `clojure -M:service/webserver 8888 --dir docs` | as above with PORT 8888 and doc directory           |
+
+> Use `Ctrl-c` to stop the server when running in the foreground
+
 
 ## Community activities
 The [Clojurians Zulip CLI](https://gitlab.com/clojurians-zulip/feeds/-/blob/master/README.md#announce-an-event) provides a simple way to register community events.
