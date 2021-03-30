@@ -981,7 +981,7 @@
   :alpha/hot-load
   {:extra-deps {org.clojure/tools.deps.alpha
                 {:git/url "https://github.com/clojure/tools.deps.alpha"
-                 :sha     "799dc545fd1a8f4e638092d44844f4e464bd2b24"
+                 :sha     "d77476f3d5f624249462e275ae62d26da89f320b"
                  ;; Using latest commit on the add-lib3 branch
                  ;; do not use :project/outdated to update
                  }}
