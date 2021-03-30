@@ -292,8 +292,8 @@
   :project/jar
   {:replace-deps {com.github.seancorfield/depstar {:mvn/version "2.0.206"}}
    :exec-fn      hf.depstar/jar
-   :exec-args    {:jar        "project.jar"
-                  :aot        true}}
+   :exec-args    {:jar "project.jar"
+                  :aot true}}
 
   ;; Uberjar archive of the project, including Clojure runtime
   ;; clojure -X:project/uberjar :main-class domain.application
@@ -301,8 +301,8 @@
   :project/uberjar
   {:replace-deps {com.github.seancorfield/depstar {:mvn/version "2.0.206"}}
    :exec-fn      hf.depstar/uberjar
-   :exec-args    {:jar        "uber.jar"
-                  :aot        true}}
+   :exec-args    {:jar "uber.jar"
+                  :aot true}}
 
 
   ;; uberdeps - uberjar builder
@@ -968,8 +968,8 @@
   ;; this alias could change significantly in future
 
   ;; Add new deps to a running REPL:
-  ;; (require '[clojure.tools.deps.alpha.repl :refer [add-lib]])
-  ;; (add-lib 'domain/library {:mvn/version "RELEASE"})
+  ;; (require '[clojure.tools.deps.alpha.repl :refer [add-libs]])
+  ;; (add-libs 'domain/library {:mvn/version "RELEASE"})
   ;; Git deps
   ;; (require '[clojure.tools.gitlibs :as gitlibs])
   ;; (defn load-master [lib]
@@ -985,7 +985,7 @@
                  ;; Using latest commit on the add-lib3 branch
                  ;; do not use :project/outdated to update
                  }}
-   ;; DynamicClassLoader required for add-lib to work
+   ;; DynamicClassLoader required for add-libs to work
    ;; if starting other processes via aliases such as a socket REPL or Cognitect's REBL
    :main-opts  ["-e" "(->>(Thread/currentThread)(.getContextClassLoader)(clojure.lang.DynamicClassLoader.)(.setContextClassLoader,(Thread/currentThread)))"]}
 
