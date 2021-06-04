@@ -485,12 +485,12 @@
 
   :inspect/portal-web
   {:extra-deps {djblue/portal             {:mvn/version "0.11.2"}
-                org.clojure/clojurescript {:mvn/version "1.10.844"}}
+                org.clojure/clojurescript {:mvn/version "1.10.866"}}
    :main-opts  ["-m" "cljs.main"]}
 
   :inspect/portal-node
   {:extra-deps {djblue/portal             {:mvn/version "0.11.2"}
-                org.clojure/clojurescript {:mvn/version "1.10.844"}}
+                org.clojure/clojurescript {:mvn/version "1.10.866"}}
    :main-opts  ["-m" "cljs.main" "-re" "node"]}
 
 
@@ -652,7 +652,7 @@
   ;; Run a REPL using nREPL server for access by cider-connect-cljs
   ;; clojure -M:middleware/cider-cljs
   :middleware/cider-cljs
-  {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.773"}
+  {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.866"}
                 nrepl/nrepl               {:mvn/version "0.8.3"}
                 cider/cider-nrepl         {:mvn/version "0.26.0"}
                 cider/piggieback          {:mvn/version "0.5.2"}}
